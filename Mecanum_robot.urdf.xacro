@@ -1,0 +1,2366 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Mecanum">
+      <xacro:arg name="laser_visual"  default="false"/>
+
+ <!-- root link, on the ground just below the model origin -->
+  <link name="base_footprint">
+   <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0 0 0" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0.0 0 0" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.31772278321152E-16 5.0022823480166E-17 0.0439078551227653"
+        rpy="0 0 0" />
+      <mass
+        value="1.72398389260298" />
+      <inertia
+        ixx="0.0270297926243194"
+        ixy="-1.473702247622E-17"
+        ixz="3.12411427887607E-19"
+        iyy="0.0192131897246865"
+        iyz="2.05097241990186E-18"
+        izz="0.0444208716223093" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.988235294117647 0.737254901960784 0.517647058823529 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Roda1">
+    <inertial>
+      <origin
+        xyz="-0.0267603390230306 -1.00847871605525E-05 -9.63474950360643E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.45592" />
+      <inertia
+        ixx="0.000135547834533873"
+        ixy="-9.59603177738407E-09"
+        ixz="-9.17918584679755E-09"
+        iyy="7.52205750207202E-05"
+        iyz="9.41928211498041E-09"
+        izz="7.52197419239876E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1"
+    type="continuous">
+    <origin
+      xyz="-0.1178 -0.2 0.0378"
+      rpy="-3.11446121115324 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda1" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete1">
+    <inertial>
+      <origin
+        xyz="-0.0226188429126744 9.91556022927886E-07 8.45299946317102E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970773221668725" />
+      <inertia
+        ixx="4.04244396636407E-07"
+        ixy="6.4619647226281E-12"
+        ixz="5.93379736914426E-11"
+        iyy="1.52819622553811E-06"
+        iyz="-1.88937666547135E-12"
+        izz="1.52820822640361E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete1"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 0.0254751706689466 0.0361960898770572"
+      rpy="-2.32679270271611 -0.629002707184369 -2.63513214520082" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete1" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete2">
+    <inertial>
+      <origin
+        xyz="-0.0226185226744015 1.07547348848769E-06 7.32299652306256E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970829177655074" />
+      <inertia
+        ixx="4.04297946351401E-07"
+        ixy="1.74925473646854E-15"
+        ixz="3.29782652959737E-15"
+        iyy="1.52841772324712E-06"
+        iyz="-3.46591714537129E-11"
+        izz="1.52837194505759E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete2"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 0.0427815110205265 0.0113526894523054"
+      rpy="-1.41570871484707 -0.779361008059987 3.03214988227321" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete2" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete3">
+    <inertial>
+      <origin
+        xyz="-0.0226188429126746 7.86315153961104E-07 -4.96906099937272E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970773221668717" />
+      <inertia
+        ixx="4.04241785371551E-07"
+        ixy="-4.45413582431625E-11"
+        ixz="-3.97231530919641E-11"
+        iyy="1.52819847875795E-06"
+        iyz="7.07961552731336E-12"
+        izz="1.5282033619189E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete3"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 0.0400699069020682 -0.018802760538269"
+      rpy="-0.594110356509675 -0.510314565566665 2.51555088836523" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete3" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete4">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377163 9.3111622267994E-07 -5.43025953009257E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673269" />
+      <inertia
+        ixx="4.04224808746536E-07"
+        ixy="3.29878453027933E-15"
+        ixz="1.74745151956457E-15"
+        iyy="1.52814925656015E-06"
+        iyz="1.86995297012165E-11"
+        izz="1.52812504222761E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete4"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 0.0186091480167214 -0.0401601899035809"
+      rpy="-0.0455895470441108 -0.0455422439417528 2.35723297457584" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete5">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377163 6.4387725512427E-07 -8.6445166785909E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673278" />
+      <inertia
+        ixx="4.04224808746538E-07"
+        ixy="3.71971018158374E-15"
+        ixz="3.15102163815231E-16"
+        iyy="1.52815902132084E-06"
+        iyz="4.22784802243291E-12"
+        izz="1.52811527746699E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete5"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 -0.0115590380432927 -0.0427262200822128"
+      rpy="0.479191123415659 0.43201454724597 2.4633006195873" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete5" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete6">
+    <inertial>
+      <origin
+        xyz="-0.0226185226560596 -6.79135794517949E-07 -8.09195036560739E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791873664173" />
+      <inertia
+        ixx="4.04261377537384E-07"
+        ixy="-3.57278925212405E-11"
+        ixz="1.13807466747872E-10"
+        iyy="1.5282741733238E-06"
+        iyz="5.10348957374868E-12"
+        izz="1.52825781021088E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete6"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 -0.0363186217384522 -0.0253001770353342"
+      rpy="1.23900665089821 0.75737147702575 2.90917600590622" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete6" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete7">
+    <inertial>
+      <origin
+        xyz="-0.022618523007052 8.52183865973632E-08 1.07426299350566E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754572321687" />
+      <inertia
+        ixx="4.04224821926277E-07"
+        ixy="4.19632702626629E-14"
+        ixz="-2.71111617794421E-14"
+        iyy="1.52814414956073E-06"
+        iyz="-2.11204865388775E-11"
+        izz="1.52812998249347E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete7"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 -0.0440843186856705 0.00396410002652473"
+      rpy="2.18099126411959 0.686540337870116 -2.7244044333138" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete7" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete8">
+    <inertial>
+      <origin
+        xyz="-0.022618522767673 9.29943381064446E-07 5.87149038874801E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097079187417331" />
+      <inertia
+        ixx="4.04261380534479E-07"
+        ixy="-2.35944549124219E-12"
+        ixz="1.19268088289549E-10"
+        iyy="1.52827561815806E-06"
+        iyz="-1.07796979746108E-13"
+        izz="1.528256333793E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete8"
+    type="continuous">
+    <origin
+      xyz="-0.049174916068326 -0.0312224729772361 0.0313735306299084"
+      rpy="2.84073792669734 0.288092543923955 -2.40015882483158" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete8" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda1_Rolete9">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377162 3.91125933002501E-07 1.00442775216592E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673266" />
+      <inertia
+        ixx="4.04224808746535E-07"
+        ixy="-2.24065940527557E-15"
+        ixz="2.98576847786124E-15"
+        iyy="1.52813139423183E-06"
+        iyz="-2.15205482261256E-11"
+        izz="1.52814290455593E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda1_Rolete9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda1_Rolete9"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 -0.00375128516361822 0.0441029375736042"
+      rpy="-2.93758438907219 -0.199890549856839 -2.37672284491847" />
+    <parent
+      link="Roda1" />
+    <child
+      link="Roda1_Rolete9" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2">
+    <inertial>
+      <origin
+        xyz="-0.0255630738529848 1.54472594475069E-05 5.92901656978895E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.45592" />
+      <inertia
+        ixx="9.46645211970763E-05"
+        ixy="1.23911883231635E-08"
+        ixz="4.74884224184771E-09"
+        iyy="5.46241312809654E-05"
+        iyz="6.32023831658045E-09"
+        izz="5.46101370234258E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda2"
+    type="continuous">
+    <origin
+      xyz="0.1178 -0.2 0.0378"
+      rpy="-2.01185662502938 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete1">
+    <inertial>
+      <origin
+        xyz="-0.0212837296983821 2.31878370254845E-08 -0.00765509093801531"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097079187366418" />
+      <inertia
+        ixx="5.32939003520796E-07"
+        ixy="4.85293220724476E-11"
+        ixz="-3.57876447959747E-07"
+        iyy="1.52827200494241E-06"
+        iyz="9.46096589081204E-12"
+        izz="1.39958235260888E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete1"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 0.0435669516948996 -0.00781421544457872"
+      rpy="-2.1091231067631 0.629278400220953 2.53751623253869" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete1" />
+    <axis
+      xyz="-0.94098688700187 0 -0.338443021039774" />
+  </joint>
+  <link
+    name="Roda2_Rolete2">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377225 2.77555756156289E-17 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673266" />
+      <inertia
+        ixx="4.04224808746536E-07"
+        ixy="-3.22562970922655E-15"
+        ixz="-1.87906155244651E-15"
+        iyy="1.52814770443057E-06"
+        iyz="1.96333520272679E-11"
+        izz="1.52812659435718E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete2"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 0.0283513403823148 -0.033990333059947"
+      rpy="-0.905977290415916 0.666781254279779 -2.69019236211714" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete2" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete3">
+    <inertial>
+      <origin
+        xyz="-0.0226185226744076 2.22044604925031E-16 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970829177655091" />
+      <inertia
+        ixx="4.04297946351407E-07"
+        ixy="-1.18158802535572E-15"
+        ixz="3.54110648052346E-15"
+        iyy="1.52842833546146E-06"
+        iyz="2.45298432095919E-11"
+        izz="1.5283613328433E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete3"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 -0.000130178185205818 -0.0442619960760933"
+      rpy="-0.265069617805753 0.256218472559965 -2.39053731865151" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete3" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete4">
+    <inertial>
+      <origin
+        xyz="-0.0226185226560661 2.26300159167359E-08 -1.15756789709209E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791873664187" />
+      <inertia
+        ixx="4.0426137753739E-07"
+        ixy="5.43252914835944E-11"
+        ixz="1.06203416672617E-10"
+        iyy="1.52827121224322E-06"
+        iyz="-8.09208642989716E-12"
+        izz="1.52826077129151E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete4"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.0285507849330992 -0.0338229792109434"
+      rpy="0.238806941988122 -0.232274267903676 -2.38418554470853" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete5">
+    <inertial>
+      <origin
+        xyz="-0.0226185227167566 8.89333884313004E-11 -1.74416037168612E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754570240456" />
+      <inertia
+        ixx="4.04224811573752E-07"
+        ixy="1.33623591273363E-14"
+        ixz="-1.80774544715713E-16"
+        iyy="1.52815936061431E-06"
+        iyz="-1.65670686037019E-12"
+        izz="1.52811490247512E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete5"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 -0.0436121621041655 -0.00755781447245046"
+      rpy="0.866416516251641 -0.651145396868123 -2.66596668152801" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete5" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete6">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377224 2.77555756156289E-17 1.73472347597681E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673258" />
+      <inertia
+        ixx="4.04224808746531E-07"
+        ixy="2.19510474252749E-15"
+        ixz="-3.0194497895084E-15"
+        iyy="1.52813075338748E-06"
+        iyz="-2.135341691185E-11"
+        izz="1.52814354540026E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete6"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 -0.0382669239315008 0.0222437356534536"
+      rpy="1.79110709778638 -0.773165726010836 2.98644488906177" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete6" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete7">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377228 2.77555756156289E-17 -6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673271" />
+      <inertia
+        ixx="4.04224808746537E-07"
+        ixy="3.68399060367468E-15"
+        ixz="6.03159607556518E-16"
+        iyy="1.52815811066344E-06"
+        iyz="7.58303966491069E-12"
+        izz="1.52811618812435E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete7"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 -0.0150161667618 0.0416371946555217"
+      rpy="2.59042281830901 -0.48241493636584 2.49509681189328" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete7" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete8">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377227 -2.77555756156289E-17 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673274" />
+      <inertia
+        ixx="4.04224808746538E-07"
+        ixy="3.27673585238072E-15"
+        ixz="1.78845905921866E-15"
+        iyy="1.5281487817739E-06"
+        iyz="1.90148638440804E-11"
+        izz="1.52812551701391E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete8"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 0.0152608217218512 0.0415481475323975"
+      rpy="3.12922938244026 -0.0123623263919094 2.35627091153561" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete8" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda2_Rolete9">
+    <inertial>
+      <origin
+        xyz="-0.022618842912681 -1.08341364865594E-07 -3.28376307853762E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970773221668731" />
+      <inertia
+        ixx="4.04244396636407E-07"
+        ixy="-1.87014401548963E-11"
+        ixz="-5.66834036154484E-11"
+        iyy="1.52819595780303E-06"
+        iyz="7.19436122123586E-13"
+        izz="1.52820849413875E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda2_Rolete9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda2_Rolete9"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683256 0.0383971021167071 0.0220182604226394"
+      rpy="-2.62158761936825 0.461152109595036 2.48093145707282" />
+    <parent
+      link="Roda2" />
+    <child
+      link="Roda2_Rolete9" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3">
+    <inertial>
+      <origin
+        xyz="-0.0255630738883132 -8.27401758439483E-06 -1.4328846407799E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.45592" />
+      <inertia
+        ixx="9.46645205795188E-05"
+        ixy="-6.64156337378005E-09"
+        ixz="-1.14883117096235E-08"
+        iyy="5.4612407139611E-05"
+        iyz="8.15895029029655E-09"
+        izz="5.46218605561263E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda3"
+    type="continuous">
+    <origin
+      xyz="0.1178 0.2 0.0378"
+      rpy="-2.557301252161 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete1">
+    <inertial>
+      <origin
+        xyz="-0.0226188429187169 -1.29964594308696E-07 -3.20419828170326E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970810525659641" />
+      <inertia
+        ixx="4.04280965438995E-07"
+        ixy="2.24313077678334E-11"
+        ixz="5.53033944443415E-11"
+        iyy="1.52834643743796E-06"
+        iyz="-2.14189221178853E-11"
+        izz="1.52831569926193E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete1"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.0387761686226199 -0.0213436170774814"
+      rpy="0.535502901560631 -0.471832673707706 -2.48790193019972" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete1" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete2">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377226 -5.55111512312578E-17 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097075456967327" />
+      <inertia
+        ixx="4.04224808746537E-07"
+        ixy="-3.22563070184328E-15"
+        ixz="-1.87906713999315E-15"
+        iyy="1.52814770443058E-06"
+        iyz="1.96333520267403E-11"
+        izz="1.52812659435719E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete2"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.0434236811021016 0.00857468148347143"
+      rpy="1.32641633433279 -0.770319032900963 -2.96965894049082" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete2" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete3">
+    <inertial>
+      <origin
+        xyz="-0.0226185226744076 1.11022302462516E-16 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970829177655087" />
+      <inertia
+        ixx="4.04297946351404E-07"
+        ixy="-1.18158368431187E-15"
+        ixz="3.54109801123383E-15"
+        iyy="1.52842833546146E-06"
+        iyz="2.45298432076832E-11"
+        izz="1.5283613328433E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete3"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.0277527705934515 0.0344807912813389"
+      rpy="2.25551552979717 -0.659058035826408 2.677945044589" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete3" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete4">
+    <inertial>
+      <origin
+        xyz="-0.022618522233909 2.26542834491639E-08 -1.13272701357525E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791871739528" />
+      <inertia
+        ixx="4.04261366969699E-07"
+        ixy="5.43569330682966E-11"
+        ixz="1.06266400780874E-10"
+        iyy="1.52827127100984E-06"
+        iyz="-8.09244087353132E-12"
+        izz="1.52826083264932E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete4"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 0.000903969713563102 0.0442529556273585"
+      rpy="2.88969355795096 -0.244266601795617 2.38727568188605" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete5">
+    <inertial>
+      <origin
+        xyz="-0.022618522713359 8.51101411569744E-11 -1.66924113420563E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097075457021608" />
+      <inertia
+        ixx="4.04224811452244E-07"
+        ixy="1.29482386049045E-14"
+        ixz="-1.80780521271145E-16"
+        iyy="1.52815936138627E-06"
+        iyz="-1.65665998574873E-12"
+        izz="1.528114903238E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete5"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 0.0291377325450972 0.0333186702185183"
+      rpy="-2.88969355795096 0.244266601795611 2.38727568188605" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete5" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete6">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377225 1.66533453693773E-16 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673281" />
+      <inertia
+        ixx="4.0422480874654E-07"
+        ixy="2.19510607925136E-15"
+        ixz="-3.01944939382759E-15"
+        iyy="1.52813075338753E-06"
+        iyz="-2.13534169106452E-11"
+        izz="1.52814354540031E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete6"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 0.0437376264889541 0.00679420871866093"
+      rpy="-2.25551552979718 0.659058035826404 2.67794504458899" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete6" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete7">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377228 5.55111512312578E-17 -4.16333634234434E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673273" />
+      <inertia
+        ixx="4.04224808746538E-07"
+        ixy="3.68398796993161E-15"
+        ixz="6.03161693224207E-16"
+        iyy="1.52815811066344E-06"
+        iyz="7.58303966496349E-12"
+        izz="1.52811618812435E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete7"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 0.0378721989090562 -0.0229093385498769"
+      rpy="-1.3264163343328 0.770319032900964 -2.96965894049083" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete7" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete8">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377227 -8.32667268468867E-17 -6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673288" />
+      <inertia
+        ixx="4.04224808746542E-07"
+        ixy="3.27673108782039E-15"
+        ixz="1.78845980055438E-15"
+        iyy="1.52814878177394E-06"
+        iyz="1.90148638435203E-11"
+        izz="1.52812551701394E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete8"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 0.014285948557004 -0.04189335170199"
+      rpy="-0.535502901560627 0.471832673707703 -2.48790193019972" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete8" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda3_Rolete9">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377227 2.77555756156289E-17 1.90819582357449E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673285" />
+      <inertia
+        ixx="4.04224808746543E-07"
+        ixy="-1.03853228678681E-15"
+        ixz="-3.5856664801388E-15"
+        iyy="1.52811804528655E-06"
+        iyz="1.14852249924416E-11"
+        izz="1.52815625350128E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda3_Rolete9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda3_Rolete9"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.0159848558955033 -0.041275"
+      rpy="0 0 -2.35619449019235" />
+    <parent
+      link="Roda3" />
+    <child
+      link="Roda3_Rolete9" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4">
+    <inertial>
+      <origin
+        xyz="-0.026760339037852 6.97328215157333E-06 1.20789279899752E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.45592" />
+      <inertia
+        ixx="0.00013554783470506"
+        ixy="6.63237212838443E-09"
+        ixz="1.15043390622029E-08"
+        iyy="7.52154316320617E-05"
+        iyz="8.15915899390301E-09"
+        izz="7.52248853966145E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo1_Roda4"
+    type="continuous">
+    <origin
+      xyz="-0.1178 0.2 0.0377999999999999"
+      rpy="2.96938248184725 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Roda4" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete1">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377165 9.5410445105637E-07 5.01536940176323E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097075456967328" />
+      <inertia
+        ixx="4.0422480874654E-07"
+        ixy="2.67465965863045E-16"
+        ixz="3.72343784248745E-15"
+        iyy="1.52811503682345E-06"
+        iyz="2.70002106257659E-12"
+        izz="1.52815926196437E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete1"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 -0.0142859485570038 -0.04189335170199"
+      rpy="0.535502901560623 0.471832673707699 2.48790193019972" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete1" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete2">
+    <inertial>
+      <origin
+        xyz="-0.0226188429187107 9.24767264542936E-07 -2.37982681339233E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0097081052565963" />
+      <inertia
+        ixx="4.04278354174139E-07"
+        ixy="2.60117227309449E-11"
+        ixz="5.37206653042093E-11"
+        iyy="1.52834148489521E-06"
+        iyz="-2.21677657409988E-11"
+        izz="1.52831804053978E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete2"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683257 -0.037872198909056 -0.022909338549877"
+      rpy="1.3264163343328 0.770319032900963 2.96965894049083" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete2" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete3">
+    <inertial>
+      <origin
+        xyz="-0.0226188429126746 7.86315154072126E-07 -4.96906099906047E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970773221668718" />
+      <inertia
+        ixx="4.04241785371551E-07"
+        ixy="-4.45413582466697E-11"
+        ixz="-3.97231530978362E-11"
+        iyy="1.52819847875796E-06"
+        iyz="7.07961552757342E-12"
+        izz="1.52820336191891E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete3"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 -0.043737626488954 0.00679420871866057"
+      rpy="2.25551552979719 0.659058035826388 -2.67794504458896" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete3" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete4">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377164 9.31116222624429E-07 -5.43025953030074E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673283" />
+      <inertia
+        ixx="4.0422480874654E-07"
+        ixy="3.29877456440731E-15"
+        ixz="1.74745288266726E-15"
+        iyy="1.52814925656019E-06"
+        iyz="1.86995297021252E-11"
+        izz="1.52812504222765E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete4"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683258 -0.0291377325450973 0.0333186702185179"
+      rpy="2.88969355795096 0.244266601795588 -2.38727568188604" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete4" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete5">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377165 6.43877255179781E-07 -8.64451667831334E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673282" />
+      <inertia
+        ixx="4.04224808746541E-07"
+        ixy="3.71970738902199E-15"
+        ixz="3.15111618867804E-16"
+        iyy="1.52815902132083E-06"
+        iyz="4.22784802210958E-12"
+        izz="1.52811527746699E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete5"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 -0.000903969713563477 0.0442529556273582"
+      rpy="-2.88969355795096 -0.24426660179564 -2.38727568188605" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete5" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete6">
+    <inertial>
+      <origin
+        xyz="-0.0226185226560594 -6.79135794517949E-07 -8.09195036644006E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791873664185" />
+      <inertia
+        ixx="4.04261377537388E-07"
+        ixy="-3.57278925247345E-11"
+        ixz="1.13807466737246E-10"
+        iyy="1.52827417332383E-06"
+        iyz="5.10348957627385E-12"
+        izz="1.5282578102109E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete6"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 0.027752770593451 0.0344807912813389"
+      rpy="-2.25551552979716 -0.659058035826421 -2.67794504458901" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete6" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete7">
+    <inertial>
+      <origin
+        xyz="-0.0226185226377163 8.48150841226136E-08 1.0745515376942E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970754569673274" />
+      <inertia
+        ixx="4.04224808746538E-07"
+        ixy="-3.00659593585209E-15"
+        ixz="2.21268576880936E-15"
+        iyy="1.52814423780761E-06"
+        iyz="-2.11189553998347E-11"
+        izz="1.52813006098019E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete7"
+    type="continuous">
+    <origin
+      xyz="-0.049174916068326 0.0434236811021013 0.00857468148347166"
+      rpy="-1.32641633433277 -0.770319032900958 2.96965894049079" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete7" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete8">
+    <inertial>
+      <origin
+        xyz="-0.0226185227911125 9.29978863944969E-07 5.87165816717805E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791874280225" />
+      <inertia
+        ixx="4.04261381164241E-07"
+        ixy="-2.36119482803497E-12"
+        ixz="1.19268089602583E-10"
+        iyy="1.52827561484091E-06"
+        iyz="-1.07679628097616E-13"
+        izz="1.52825633047723E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete8"
+    type="continuous">
+    <origin
+      xyz="-0.049174916068326 0.0387761686226194 -0.0213436170774816"
+      rpy="-0.535502901560616 -0.47183267370768 2.48790193019971" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete8" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="Roda4_Rolete9">
+    <inertial>
+      <origin
+        xyz="-0.0226185226560593 3.70807921437621E-07 9.89203477110012E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.00970791873664179" />
+      <inertia
+        ixx="4.04261377537386E-07"
+        ixy="7.15968497650711E-11"
+        ixz="-9.5407090404036E-11"
+        iyy="1.52826915195486E-06"
+        iyz="9.11025174285514E-12"
+        izz="1.52826283157983E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum_description2/urdf2/meshes/Roda4_Rolete9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Eixo2_Roda4_Rolete9"
+    type="continuous">
+    <origin
+      xyz="-0.0491749160683259 0.0159848558955028 -0.0412749999999999"
+      rpy="0 0 2.35619449019235" />
+    <parent
+      link="Roda4" />
+    <child
+      link="Roda4_Rolete9" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+
+  <!--transmissions-->
+  <transmission name="Roda1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="Roda1_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface> 
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Eixo1_Roda1">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="Roda2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="Roda2_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface> 
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Eixo1_Roda2">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="Roda3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="Roda3_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface> 
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Eixo1_Roda3">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="Roda4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="Roda4_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface> 
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Eixo1_Roda4">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+
+  <!--Gazebo controller plugin-->
+  
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace></robotNamespace>
+  </plugin>
+  </gazebo>
+
+  <!--gazebo>
+    <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
+     <commandTopic>cmd_vel</commandTopic>
+     <odometryTopic>odom</odometryTopic>
+     <odometryFrame>odom</odometryFrame>
+     <odometryRate>20.0</odometryRate>
+     <robotBaseFrame>base_footprint</robotBaseFrame>
+     <publishTF>true</publishTF>
+    </plugin>
+  </gazebo-->
+  
+  <!--gazebo>
+      <plugin name="gazebo_ros_mecanum_diff_drive" filename="libgazebo_ros_mecanum_drive.so">
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+        <LeftRear>Roda2</LeftRear>
+        <LeftFront>Roda1</LeftFront>
+        <RightFront>Roda4</RightFront>
+        <RightRear>Roda3</RightRear>
+        <odometryRate>20</odometryRate>      
+        <publishWheelTF>true</publishWheelTF>
+        <publishWheelJointState>true</publishWheelJointState>
+        <WheelTorque>1000</WheelTorque>
+        <WheelSeparationW>0.470</WheelSeparationW>
+        <WheelSeparationL>0.235</WheelSeparationL>
+        <wheelAccel>20</wheelAccel>
+        <wheelDiameter>0.095</wheelDiameter>
+        <publishOdom>true</publishOdom>
+        <isRollerModel>true</isRollerModel>
+      </plugin>
+</gazebo-->
+
+<!--gazebo>
+      <plugin name="gazebo_mecanum_pid_plugin" filename="libgazebo_ros_mecanum_pid_drive.so">
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+        <LeftRear>Eixo1_Roda1</LeftRear>
+        <LeftFront>Eixo1_Roda4</LeftFront>
+        <RightFront>Eixo1_Roda3</RightFront>
+        <RightRear>Eixo1_Roda2</RightRear>
+        <odometryRate>20</odometryRate>      
+        <publishWheelTF>true</publishWheelTF>
+        <publishWheelJointState>true</publishWheelJointState>
+        <WheelTorque>100</WheelTorque>
+        <WheelSeparationW>0.470</WheelSeparationW>
+        <WheelSeparationL>0.235</WheelSeparationL>
+        <wheelAccel>20</wheelAccel>
+        <wheelDiameter>0.095</wheelDiameter>
+        <publishOdom>true</publishOdom>
+        <isRollerModel>true</isRollerModel>
+        <dt>0.05</dt>
+        <WheelInputVelTopic>zm_input_vel</WheelInputVelTopic>
+        <WheelOutputVelTopic>zm_output_vel</WheelOutputVelTopic>
+        <WheelPID>gazebo_mecanum_plugins_PID</WheelPID>
+      </plugin>
+</gazebo-->
+
+<!--Gazebo lds (lidar)-->
+
+ <joint name="scan_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_scan"/>
+    <origin xyz="-0.064 0 0.122" rpy="0 0 0"/>
+  </joint>
+
+ <link name="base_scan">
+    <visual>
+      <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://turtlebot3_description/meshes/sensors/lds.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.114" />
+      <origin xyz="0 0 -0.03" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+  </link>
+
+<gazebo reference="base_scan">
+    <material>Gazebo/FlatBlack</material>
+    <sensor type="ray" name="lds_lfcd_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>$(arg laser_visual)</visualize>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>3.5</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
+        <robotNamespace></robotNamespace>
+        <topicName>scan</topicName>
+        <frameName>base_scan</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
+
+
